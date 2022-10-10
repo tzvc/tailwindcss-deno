@@ -1,13 +1,13 @@
 import fs from 'fs'
 import path from 'path'
 import resolve from 'resolve'
-import detective from 'detective'
+// import detective from 'detective'
 
 function createModule(file) {
-  const source = fs.readFileSync(file, 'utf-8')
-  const requires = detective(source)
+  // const source = fs.readFileSync(file, 'utf-8')
+  // const requires = detective(source)
 
-  return { file, requires }
+  return { file, requires: [] }
 }
 
 export default function getModuleDependencies(entryFile) {
