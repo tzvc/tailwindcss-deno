@@ -17,6 +17,7 @@ module.exports = function tailwindcss(configOrPath) {
         // Use the path for the `@config` directive if it exists, otherwise use the
         // path for the file being processed
         configOrPath = findAtConfigPath(root, result) ?? configOrPath
+        console.log(configOrPath)
 
         let context = setupTrackingContext(configOrPath)
 
