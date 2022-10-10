@@ -4,10 +4,13 @@ import resolve from 'resolve'
 // import detective from 'detective'
 
 function createModule(file) {
-  // const source = fs.readFileSync(file, 'utf-8')
-  // const requires = detective(source)
+  const source = fs.readFileSync(file, 'utf-8')
 
-  return { file, requires: [] }
+  // const requires = detective(source)
+  const regexp = /require\(['"`](.+)['"`]\)/gm
+  const requires = [...source.matchAll(regexp)].map((m) => m[1])
+
+  return { file, requires }
 }
 
 export default function getModuleDependencies(entryFile) {
